@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +20,7 @@ public class RubyController : MonoBehaviour
     private float _invincibleTimer;
     private Animator _animator;
     private Vector2 _lookDirection = new Vector2(1, 0);
+    private Vector2 _movement;
     
     // Audio
     private AudioSource _audioSource;
@@ -42,26 +44,21 @@ public class RubyController : MonoBehaviour
     
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
         
-        Vector2 move = new Vector2(horizontal, vertical);
+        _movement = new Vector2(horizontal, vertical);
 
-        if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+        if (!Mathf.Approximately(_movement.x, 0.0f) || !Mathf.Approximately(_movement.y, 0.0f))
         {
-            _lookDirection.Set(move.x, move.y);
+            _lookDirection.Set(_movement.x, _movement.y);
             _lookDirection.Normalize();
         }
         
         _animator.SetFloat(LookXAnim, _lookDirection.x);
         _animator.SetFloat(LookYAnim, _lookDirection.y);
-        _animator.SetFloat(SpeedAnim, move.magnitude);
-
-        Vector2 position = _rigidbody2D.position;
-        position += Time.deltaTime * _speed * move;
-
-        _rigidbody2D.MovePosition(position);
-
+        _animator.SetFloat(SpeedAnim, _movement.magnitude);
+        
         if (_isInvincible)
         {
             _invincibleTimer -= Time.deltaTime;
@@ -89,6 +86,11 @@ public class RubyController : MonoBehaviour
                 }
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        _rigidbody2D.MovePosition(_rigidbody2D.position + Time.fixedDeltaTime * _speed * _movement);
     }
 
     public void ChangeHealth(int amount)
