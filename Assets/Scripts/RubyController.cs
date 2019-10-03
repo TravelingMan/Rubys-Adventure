@@ -24,8 +24,8 @@ public class RubyController : MonoBehaviour
     
     // Audio
     private AudioSource _audioSource;
-    [SerializeField] private AudioClip throwClip;
-    [SerializeField] private AudioClip getHurt;
+    [SerializeField] private AudioClip throwClip = null;
+    [SerializeField] private AudioClip getHurt = null;
     
     // Animation cache
     private static readonly int LookXAnim = Animator.StringToHash("Look X");

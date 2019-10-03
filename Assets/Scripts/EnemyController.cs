@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     
     // Audio clips
     private AudioSource _audioSource;
-    [SerializeField] private AudioClip repairSound;
+    [SerializeField] private AudioClip repairSound = null;
 
     void Start()
     {
