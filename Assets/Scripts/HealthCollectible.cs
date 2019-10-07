@@ -2,7 +2,7 @@
 
 public class HealthCollectible : MonoBehaviour
 {
-    public ParticleSystem collectibleEffect;
+    [SerializeField] private ParticleSystem collectibleEffect;
     
     [SerializeField] private AudioClip collectedClip = null;
 

@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
-    public GameObject dialogBox;
+    [SerializeField] private GameObject dialogBox;
     
     [SerializeField] private float displayTime = 4.0f;
     private float _timerDisplay;

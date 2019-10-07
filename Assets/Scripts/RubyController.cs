@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RubyController : MonoBehaviour
 {
     public int maxHealth = 5;
-    public float timeInvincible = 1.0f;
-    public GameObject projectilePrefab;
+    
+    [SerializeField] private float timeInvincible = 1.0f;
+    [SerializeField] private GameObject projectilePrefab;
+    
     public int Health
     {
         get { return _currentHealth; }

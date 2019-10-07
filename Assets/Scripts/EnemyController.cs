@@ -1,12 +1,11 @@
-﻿using Cinemachine;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public float speed = 1.0f;
-    public bool vertical;
-    public float changeTime = 3.0f;
-    public ParticleSystem smokeEffect;
+    [SerializeField] private float speed = 1.0f;
+    [SerializeField] private bool vertical;
+    [SerializeField] private float changeTime = 3.0f;
+    [SerializeField] private ParticleSystem smokeEffect;
     
     private Rigidbody2D _rigidbody2D;
     private float _timer;
