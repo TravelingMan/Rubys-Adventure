@@ -5,7 +5,7 @@ public class RubyController : MonoBehaviour
     public int maxHealth = 5;
     
     [SerializeField] private float timeInvincible = 1.0f;
-    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private GameObject projectilePrefab = null;
     
     public int Health
     {

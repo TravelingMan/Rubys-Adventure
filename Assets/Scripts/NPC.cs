@@ -2,7 +2,7 @@
 
 public class NPC : MonoBehaviour
 {
-    [SerializeField] private GameObject dialogBox;
+    [SerializeField] private GameObject dialogBox = null;
     
     [SerializeField] private float displayTime = 4.0f;
     private float _timerDisplay;

@@ -3,9 +3,9 @@
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private float speed = 1.0f;
-    [SerializeField] private bool vertical;
+    [SerializeField] private bool vertical = false;
     [SerializeField] private float changeTime = 3.0f;
-    [SerializeField] private ParticleSystem smokeEffect;
+    [SerializeField] private ParticleSystem smokeEffect = null;
     
     private Rigidbody2D _rigidbody2D;
     private float _timer;

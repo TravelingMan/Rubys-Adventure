@@ -2,8 +2,7 @@
 
 public class HealthCollectible : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem collectibleEffect;
-    
+    [SerializeField] private ParticleSystem collectibleEffect = null;
     [SerializeField] private AudioClip collectedClip = null;
 
     private void OnTriggerEnter2D(Collider2D other)
